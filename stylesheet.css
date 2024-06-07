@@ -298,8 +298,8 @@ header {
   background-color: rgb(255 255 255 / 80%);
   padding: 10px 20px 0 20px;
   font-size: 40px;
-    line-height: 1.5;
-    align-items: center;
+  line-height: 1.5;
+  align-items: center;
 }
 
 
@@ -393,20 +393,20 @@ header {
 /* Concept
 ------------------------------------------ */
 .concept-box {
-  display: flex;
+  /* display: flex; */
+  padding: 80px 20px;
   background-image: url(../img/concept.jpg);
   background-size: cover;
   background-position: center;
-  background-attachment: fixed;
+  /* background-attachment: fixed; */
 }
 
 
 .concept-item {
   padding: 20px 20px;
-  background-color: #fff;
+  background-color: rgba(255,255,255,0.85);
   max-width: 590px;
   line-height: 25.5px;
-  margin: 100px 50px;
 }
 /*========= 背景色の動きのCSS ===============*/
 
@@ -568,7 +568,7 @@ header {
   max-width: 500px;
   height: 300px;
   object-fit: cover;
-  object-position: center top;
+  object-position: center;
   margin-bottom: 30px;
 }
 /*　枠線＋テキストが出現 　*/
@@ -1058,7 +1058,7 @@ footer .container {
     position: fixed;
     top: 0;
     transition: 0.5s;
-    width: 350px;
+    width: 310px;
     z-index: 20;
   }
 
@@ -1156,8 +1156,8 @@ footer .container {
 
   .staff-box {
     grid-template-columns: repeat(2, 1fr);
-    gap: 30px;
-    padding: 0 30px;
+    gap: 10px;
+    padding: 0 10px;
   }
 
   .staff-item{
@@ -1168,6 +1168,9 @@ footer .container {
     width: 100%;
   }
 
+  .access-text {
+    margin: 0px 20px;
+}
   .access-text dt {
     font-size: 12px;
     text-align: center;
