@@ -395,7 +395,7 @@ header {
 .concept-box {
   /* display: flex; */
   padding: 80px 20px;
-  background-image: url(../img/concept.jpg);
+  background-image: url(./img/concept.jpg);
   background-size: cover;
   background-position: center;
   /* background-attachment: fixed; */
