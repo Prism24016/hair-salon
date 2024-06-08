@@ -961,6 +961,13 @@ footer .container {
   font-size: 22px;
 }
 
+.telephone a{
+  color: #fff;
+}
+.access-text .telephone a{
+color: 731d1d;
+}
+
 .footer-menu {
   text-align: left;
   margin-left: 80px;
