@@ -809,10 +809,6 @@ textarea {
 .btn {
   text-align: center;
 }
-
-
-
-
 /* footer
 ------------------------------------------ */
 
@@ -871,7 +867,7 @@ footer a {
 /*リンク全体の aタグの形状*/
 .scroll-top a {
   text-decoration: none;
-  color: #e15d54;
+  color: #e47971;
   text-transform: uppercase;
   font-size: 0.9rem;
   display: block;
@@ -886,7 +882,7 @@ footer a {
   right: 0;
   width: 1px;
   height: 50px;
-  background: #e15d54;
+  background: #e47971;
 }
 
 .js-scroll a::before {
@@ -896,7 +892,7 @@ footer a {
   right: -6px;
   width: 1px;
   height: 20px;
-  background: #e15d54;
+  background: #e47971;
   transform: skewX(-31deg);
 }
 
@@ -915,7 +911,7 @@ _:-ms-lang(x),
   right: 0;
   width: 1px;
   height: 50px;
-  background: #e15d54;
+  background: #e47971;
 }
 
 .js-pagetop a::before {
@@ -925,7 +921,7 @@ _:-ms-lang(x),
   right: -6px;
   width: 1px;
   height: 20px;
-  background: #e15d54;
+  background: #e47971;
   transform: skewX(31deg);
 }
 
@@ -936,7 +932,7 @@ _:-ms-lang(x),
 }
 
 footer {
-  background-color: #c54d4d;
+  background-color: #872222;
   padding-top: 30px;
 }
 
@@ -952,7 +948,7 @@ footer .container {
 }
 
 .footer-text {
-  background-color: #cf5757;
+  background-color: #992626;
   border-radius: 50px;
   max-width: 350px;
   margin: 0 auto;
@@ -1132,7 +1128,7 @@ footer .container {
   }
 
   .hamburger-box {
-    background-color: #cf5757;
+    background-color: #992626;
     border-radius: 50px;
     color: #fff;
     display: unset;
