@@ -8,8 +8,8 @@ body {
 html {
   scroll-padding-top: 60px;
   /* ヘッダーの高さ */
-  background-color: #fff9f4;
-  color: #6e6a66;
+  background-color: #fbf4f2;
+  color: #731D1D;
 }
 
 img {
@@ -31,9 +31,10 @@ section {
 
 li,
 a {
-  color: #fff;
+  color: #731D1D;
   list-style: none;
   text-decoration: none;
+
 }
 
 .heading {
@@ -58,21 +59,21 @@ p {
 
 /* ボタン */
 .button {
-  color: #fff;
+  color: #fbf5f5;
   display: block;
   margin: 0 auto;
   text-align: center;
-  background-color: #b4ada7;
-  border: 2px solid #b4ada7;
+  background-color: #e15d54;
+  border: 2px solid #e15d54;
   font-size: 15px;
   max-width: 180px;
   padding: 10px 15px;
 }
 
 .button:hover {
-  background-color: #fff;
-  border: 2px solid #b4ada7;
-  color: #b4ada7;
+  background-color: #fbf5f5;
+  border: 2px solid #e15d54;
+  color: #e15d54;
 }
 
 
@@ -92,7 +93,7 @@ p {
   content: "";
   width: 0;
   height: 1px;
-  background: #b4ada7;
+  background: #e15d54;
   /* 枠線の色*/
 }
 
@@ -103,7 +104,7 @@ p {
   content: "";
   width: 1px;
   height: 0;
-  background: #b4ada7;
+  background: #e15d54;
   /* 枠線の色*/
 
 }
@@ -227,10 +228,10 @@ header {
 
 .hamburger-link a {
   padding: 10px;
+  color: #fff;
 }
 
 .hamburger-link a:hover {
-  background-color: #6e6a66;
   color: #fff;
   border-radius: 10px;
 }
@@ -268,10 +269,11 @@ header {
 .main-img-pc {
   display: block;
   margin-left: auto;
-  height: 100vh;
-  width: 80%;
+  height: 80vh;
+  width: 70%;
   object-fit: cover;
-  /* border-radius: 0px 0px 0px 100px; */
+  height: calc(100vh-70vh);
+  border-radius: 0px 0px 0px 100px;
   text-align: right;
 }
 
@@ -293,11 +295,11 @@ header {
   display: table;
   font-weight: bold;
   line-height: 2.3;
-  color: #6e6a66;
+  color: #cc4343;
   border-radius: 5px;
   background-color: rgb(255 255 255 / 80%);
   padding: 10px 20px 0 20px;
-  font-size: 40px;
+  font-size: 38px;
   line-height: 1.5;
   align-items: center;
 }
@@ -320,16 +322,6 @@ header {
 .main-contact {
   margin-top: 56px;
 }
-
-
-
-.main-img-pc {
-  max-width: 100%;
-  height: calc(100vh-70vh);
-  border-radius: 0px 0px 0px 100px;
-  text-align: right;
-}
-
 
 /*========= 流れるテキスト ===============*/
 
@@ -395,10 +387,10 @@ header {
 .concept-box {
   /* display: flex; */
   padding: 80px 20px;
-  background-image: url(./img/concept.jpg);
+  background-image: url(../img/concept.jpg);
   background-size: cover;
   background-position: center;
-  /* background-attachment: fixed; */
+  background-attachment: fixed;
 }
 
 
@@ -416,7 +408,7 @@ header {
 	animation-duration:1s;
 	animation-fill-mode:forwards;
 	position: relative;
-	overflow: hidden;/*　はみ出た色要素を隠す　*/
+	overflow: hidden;/*はみ出た色要素を隠す*/
 	opacity:0;
 }
 
@@ -457,7 +449,7 @@ header {
     position: absolute;
     width: 100%;
     height: 100%;
-    background-color: #dcdbdb;/*伸びる背景色の設定*/
+    background-color: #fbf4f2;/*伸びる背景色の設定*/
 }
 @keyframes bgLRextendAnime{
 	0% {
@@ -488,24 +480,22 @@ header {
   gap: 20px;
   grid-template-columns: repeat(3, 1fr);
   padding-bottom: 30px;
+  margin: 0 20px;
 }
 
 .blog-item {
   box-shadow: 5px 5px 9px 5px rgba(0, 0, 0, 0.25);
-  transition: all 7s;
   max-width: 250px;
 }
 
 .blog-item-img {
-  /* opacity : 0; */
-  transform: translateY(20px);
-  transition: all 1s;
   height: 280px;
   object-fit: cover;
   object-position: center top;
 }
 
 .blog-item-text {
+  background-color: #fff;
   padding: 30px;
 }
 
@@ -519,6 +509,43 @@ header {
 
 .blog-item-text p:last-child {
   font-size: 12px;
+}
+
+/*波紋*/
+
+.circle span.mask{
+	position: relative;/*波紋の基点となる位置を定義*/
+    display: block;
+    line-height: 0;/*行の高さを0にする*/
+    overflow: hidden;/*拡大してはみ出る要素を隠す*/
+}
+
+.circle span.mask::before {
+	position: absolute;
+	content:"";
+	transform: scale(0);/*円の大きさ初期値は0*/
+	opacity: 0;/*透過0*/
+	width:100%;/*円のサイズ指定*/
+	height:100%;/*円のサイズ指定*/
+	border-radius:50%;/*円の角丸指定*/
+	background: rgba(255,255,255,0.4);/*円の背景色*/
+}
+
+.circle span.mask:hover::before {/*hoverした時の変化*/
+	animation: circle 0.75s;/*アニメーションの名前と速度を定義*/
+}
+
+@keyframes circle {
+  0% {
+  transform: scale(0);
+  opacity: 1;/*透過なし*/
+  }
+  30% {
+    opacity: 1;
+  }
+  100% {
+  transform: scale(2);/*アニメーションで大きくなった2倍の円の指定*/
+  }
 }
 
 /* main-Staff
@@ -712,11 +739,11 @@ iframe {
 }
 
 .reserve-btn a {
-  color: #7e7974;
+  color: #731D1D;
   padding: 20px 30px;
   display: inline-block;
   height: 100px;
-  border: 1px solid #b4ada7;
+  border: 1px solid #731D1D;
   position: relative;
 }
 
@@ -727,12 +754,12 @@ iframe {
   width: 0;
   height: 0;
   border-style: solid;
-  border-color: transparent transparent#b4ada7 transparent;
+  border-color: transparent transparent#e15d54; transparent;
   border-width: 0px 0px 25px 25px;
 }
 
 .reserve-btn:hover {
-  outline: 3px solid #b4ada7;
+  outline: 2px solid #731d1d;
   transform: scale(1.1, 1.1);
 }
 
@@ -766,7 +793,7 @@ textarea {
 }
 
 .form-btn {
-  background-color: #b4ada7;
+  background-color: #e15d54;
   color: white;
   margin: 50px;
   padding: 10px 0;
@@ -774,9 +801,9 @@ textarea {
 }
 
 .form-btn:hover {
-  border-color: #b4ada7;
+  border-color: #e15d54;
   background-color: white;
-  color: #b4ada7;
+  color: #e15d54;
 }
 
 .btn {
@@ -790,7 +817,6 @@ textarea {
 ------------------------------------------ */
 
 footer {
-  background-color: #b4ada7;
   color: #fff;
   text-align: center;
 }
@@ -845,7 +871,7 @@ footer a {
 /*リンク全体の aタグの形状*/
 .scroll-top a {
   text-decoration: none;
-  color: #666;
+  color: #e15d54;
   text-transform: uppercase;
   font-size: 0.9rem;
   display: block;
@@ -860,7 +886,7 @@ footer a {
   right: 0;
   width: 1px;
   height: 50px;
-  background: #666;
+  background: #e15d54;
 }
 
 .js-scroll a::before {
@@ -870,7 +896,7 @@ footer a {
   right: -6px;
   width: 1px;
   height: 20px;
-  background: #666;
+  background: #e15d54;
   transform: skewX(-31deg);
 }
 
@@ -889,7 +915,7 @@ _:-ms-lang(x),
   right: 0;
   width: 1px;
   height: 50px;
-  background: #666;
+  background: #e15d54;
 }
 
 .js-pagetop a::before {
@@ -899,7 +925,7 @@ _:-ms-lang(x),
   right: -6px;
   width: 1px;
   height: 20px;
-  background: #666;
+  background: #e15d54;
   transform: skewX(31deg);
 }
 
@@ -910,7 +936,7 @@ _:-ms-lang(x),
 }
 
 footer {
-  background-color: #b4ada7;
+  background-color: #c54d4d;
   padding-top: 30px;
 }
 
@@ -926,7 +952,7 @@ footer .container {
 }
 
 .footer-text {
-  background-color: #beb7b2;
+  background-color: #cf5757;
   border-radius: 50px;
   max-width: 350px;
   margin: 0 auto;
@@ -991,9 +1017,8 @@ footer .container {
     padding: 5px 5px;
   }
 
-  .mainvisual-img {
-    max-width: 100%;
-    height: auto;
+  .main-text-top, .main-text-bottom{
+    font-size: 30px;
   }
 
   /* ハンバーガーボタン */
@@ -1007,7 +1032,7 @@ footer .container {
   }
 
   .hamburger-btn span {
-    background-color: #b4ada7;
+    background-color: #fff;
     display: block;
     height: 1.5px;
     position: absolute;
@@ -1048,8 +1073,8 @@ footer .container {
 
   /* ハンバーガーメニュー  */
   .hamburger-menu {
-    background-color: #fff;
-    color: #b4ada7;
+    background-color: #fbf4f2;
+    color: #731d1d;
     display: flex;
     flex-direction: column;
     height: 100vh;
@@ -1063,20 +1088,20 @@ footer .container {
   }
 
   .hamburger-menu a {
-    color: #b4ada7;
+    color: #c54d4d;
   }
 
   .hamburger-nav li {
-    border-bottom: 1px solid #b4ada7;
+    border-bottom: 1px solid #c54d4d;
     width: 100%;
   }
 
   .hamburger-nav li:first-child {
-    border-top: 1px solid #b4ada7;
+    border-top: 1px solid #c54d4d;
   }
 
   .hamburger-nav a:hover {
-    background-color: #b4ada7;
+    background-color: #c54d4d;
     color: #fff;
     /* padding: 10px; */
     border-radius: 0px;
@@ -1107,7 +1132,7 @@ footer .container {
   }
 
   .hamburger-box {
-    background-color: #b4ada7;
+    background-color: #cf5757;
     border-radius: 50px;
     color: #fff;
     display: unset;
@@ -1139,6 +1164,27 @@ footer .container {
     top: 0;
     width: 100%;
   }
+  .main-img-pc {
+    height: 0;
+    width: 0;
+  }
+
+  .main-img-sp {
+    display: block;
+    margin-left: auto;
+    height: 80vh;
+    width: 70%;
+    object-fit: cover;
+    height: calc(100vh-70vh);
+    border-radius: 0px 0px 0px 100px;
+    text-align: right;
+  }
+
+
+.main-img-sp img{
+  object-fit: cover;
+  object-position: left;
+}
 
   .hamburger-link,
   .concept-box,
@@ -1153,10 +1199,27 @@ footer .container {
     margin-bottom: 25px;
   }
 
+  .blog-box{
+    grid-template-columns: 1fr;
+  }
+.blog-item{
+  display: flex;
+}
+.blog-item {
+  box-shadow: 5px 5px 9px 5px rgba(0, 0, 0, 0.25);
+  max-width: 500px;
+}
+
+.blog-item-img {
+  height: 150px;
+  width: 100px;
+  object-fit: cover;
+  object-position: center top;
+}
 
   .staff-box {
     grid-template-columns: repeat(2, 1fr);
-    gap: 10px;
+    gap: 22px;
     padding: 0 10px;
   }
 
