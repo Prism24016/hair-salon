@@ -809,6 +809,10 @@ textarea {
 .btn {
   text-align: center;
 }
+
+
+
+
 /* footer
 ------------------------------------------ */
 
@@ -932,7 +936,7 @@ _:-ms-lang(x),
 }
 
 footer {
-  background-color: #872222;
+  background-color: #793e33;
   padding-top: 30px;
 }
 
@@ -948,7 +952,7 @@ footer .container {
 }
 
 .footer-text {
-  background-color: #992626;
+  background-color: #834438;
   border-radius: 50px;
   max-width: 350px;
   margin: 0 auto;
@@ -1080,7 +1084,7 @@ color: 731d1d;
     color: #731d1d;
     display: flex;
     flex-direction: column;
-    height: 100vh;
+    height: 110vh;
     left: -400px;
     padding: 20px 25px;
     position: fixed;
@@ -1150,6 +1154,7 @@ color: 731d1d;
 
   .hamburger-item {
     padding-top: 10px;
+    color: #fff;
   }
 
   .open .hamburger-menu {
