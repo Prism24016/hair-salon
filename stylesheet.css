@@ -106,11 +106,10 @@ p {
   height: 0;
   background: #e15d54;
   /* 枠線の色*/
-
-}
+ }
 
 /*上線*/
-.line::before {
+　.lineAnime::before {
   top: 0;
   left: 0;
   animation: lineAnime .3s linear 0s forwards;
@@ -118,7 +117,7 @@ p {
 }
 
 /*右線*/
-.line-move::before {
+.lineAnime2 .line-move::before {
   top: 0;
   right: 0;
   animation: lineAnime2 .3s linear .3s forwards;
@@ -126,7 +125,7 @@ p {
 }
 
 /*下線*/
-.line::after {
+.lineAnime::after {
   bottom: 0;
   right: 0;
   animation: lineAnime .3s linear .6s forwards;
@@ -134,7 +133,7 @@ p {
 }
 
 /*左線*/
-.line-move::after {
+.lineAnime2 .line-move::after {
   bottom: 0;
   left: 0;
   animation: lineAnime2 .3s linear .9s forwards;
@@ -490,6 +489,7 @@ header {
 
 .blog-item-img {
   height: 280px;
+  width: 250px;
   object-fit: cover;
   object-position: center top;
 }
@@ -497,6 +497,8 @@ header {
 .blog-item-text {
   background-color: #fff;
   padding: 30px;
+  width: 100%;
+  height: 214px;
 }
 
 .blog-item-text p:first-child {
@@ -509,6 +511,11 @@ header {
 
 .blog-item-text p:last-child {
   font-size: 12px;
+}
+
+.circle a{
+  display: block;
+  max-width: 250px;
 }
 
 /*波紋*/
@@ -747,6 +754,14 @@ iframe {
   position: relative;
 }
 
+.reserve-btn p:first-child{
+  font-size: 20px;
+}
+
+.reserve-btn i{
+  padding-right: 15px;
+}
+
 .reserve-btn span {
   position: absolute;
   right: 5px;
@@ -754,7 +769,7 @@ iframe {
   width: 0;
   height: 0;
   border-style: solid;
-  border-color: transparent transparent#e15d54; transparent;
+  border-color: transparent transparent#e15d54 transparent;
   border-width: 0px 0px 25px 25px;
 }
 
@@ -810,12 +825,8 @@ textarea {
   text-align: center;
 }
 
-
-
-
 /* footer
 ------------------------------------------ */
-
 footer {
   color: #fff;
   text-align: center;
@@ -1099,12 +1110,12 @@ color: 731d1d;
   }
 
   .hamburger-nav li {
-    border-bottom: 1px solid #c54d4d;
+    border-bottom: 1px solid #a15546;
     width: 100%;
   }
 
   .hamburger-nav li:first-child {
-    border-top: 1px solid #c54d4d;
+    border-top: 1px solid #a15546;
   }
 
   .hamburger-nav a:hover {
@@ -1139,7 +1150,7 @@ color: 731d1d;
   }
 
   .hamburger-box {
-    background-color: #992626;
+    background-color: #834438;
     border-radius: 50px;
     color: #fff;
     display: unset;
@@ -1219,11 +1230,26 @@ color: 731d1d;
 }
 
 .blog-item-img {
-  height: 150px;
-  width: 100px;
+  height: 214px;
+  width: 100%;
   object-fit: cover;
   object-position: center top;
+  padding: 5%;
 }
+
+.blog-item-text{
+  width: 70%;
+}
+
+.circle a{
+  width: 100%;
+  max-width: fit-content;
+  margin: 0 auto;
+}
+.circle span.mask{
+  width: 30%;
+}
+
 
   .staff-box {
     grid-template-columns: repeat(2, 1fr);
