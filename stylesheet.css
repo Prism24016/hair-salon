@@ -106,10 +106,10 @@ p {
   height: 0;
   background: #e15d54;
   /* 枠線の色*/
- }
+}
 
 /*上線*/
-　.lineAnime::before {
+.lineAnime::before {
   top: 0;
   left: 0;
   animation: lineAnime .3s linear 0s forwards;
@@ -285,7 +285,7 @@ header {
 .main-pickup {
   position: absolute;
   bottom: 150px;
-  left: 50px;
+  left: 25px;
   text-align: left;
 }
 
@@ -294,9 +294,9 @@ header {
   display: table;
   font-weight: bold;
   line-height: 2.3;
-  color: #cc4343;
+  color: #fff;
   border-radius: 5px;
-  background-color: rgb(255 255 255 / 80%);
+  background-color: rgba(225,93,84,0.9);
   padding: 10px 20px 0 20px;
   font-size: 38px;
   line-height: 1.5;
@@ -305,7 +305,7 @@ header {
 
 
 .main-text-bottom {
-    margin-top: 20px;
+  margin-top: 20px;
 }
 
 .main-text-top {
@@ -327,55 +327,60 @@ header {
 /*全共通*/
 
 .slide-in {
-	overflow: hidden;
-    display: inline-block;
+  overflow: hidden;
+  display: inline-block;
 }
 
 .slide-in_inner {
-	display: inline-block;
+  display: inline-block;
 
 }
 
 /*左右のアニメーション*/
-.leftAnime{
-    opacity: 0;/*事前に透過0にして消しておく*/
+.leftAnime {
+  opacity: 0;
+  /*事前に透過0にして消しておく*/
 }
 
 .slideAnimeLeftRight {
-	animation-name:slideTextX100;
-	animation-duration:0.8s;
-	animation-fill-mode:forwards;
-    opacity: 0;
+  animation-name: slideTextX100;
+  animation-duration: 0.8s;
+  animation-fill-mode: forwards;
+  opacity: 0;
 }
 
 @keyframes slideTextX100 {
   from {
-	transform: translateX(-100%); /*要素を左の枠外に移動*/
-        opacity: 0;
+    transform: translateX(-100%);
+    /*要素を左の枠外に移動*/
+    opacity: 0;
   }
 
   to {
-	transform: translateX(0);/*要素を元の位置に移動*/
+    transform: translateX(0);
+    /*要素を元の位置に移動*/
     opacity: 1;
   }
 }
 
 .slideAnimeRightLeft {
-	animation-name:slideTextX-100;
-	animation-duration:0.8s;
-	animation-fill-mode:forwards;
-    opacity: 0;
+  animation-name: slideTextX-100;
+  animation-duration: 0.8s;
+  animation-fill-mode: forwards;
+  opacity: 0;
 }
 
 
 @keyframes slideTextX-100 {
   from {
-	transform: translateX(100%);/*要素を右の枠外に移動*/
+    transform: translateX(100%);
+    /*要素を右の枠外に移動*/
     opacity: 0;
   }
 
   to {
-	transform: translateX(0);/*要素を元の位置に移動*/
+    transform: translateX(0);
+    /*要素を元の位置に移動*/
     opacity: 1;
   }
 }
@@ -395,77 +400,85 @@ header {
 
 .concept-item {
   padding: 20px 20px;
-  background-color: rgba(255,255,255,0.85);
+  background-color: rgba(255, 255, 255, 0.85);
   max-width: 590px;
   line-height: 25.5px;
 }
+
 /*========= 背景色の動きのCSS ===============*/
 
 /*背景色が伸びて出現 共通*/
-.bgextend{
-	animation-name:bgextendAnimeBase;
-	animation-duration:1s;
-	animation-fill-mode:forwards;
-	position: relative;
-	overflow: hidden;/*はみ出た色要素を隠す*/
-	opacity:0;
+.bgextend {
+  animation-name: bgextendAnimeBase;
+  animation-duration: 1s;
+  animation-fill-mode: forwards;
+  position: relative;
+  overflow: hidden;
+  /*はみ出た色要素を隠す*/
+  opacity: 0;
 }
 
-@keyframes bgextendAnimeBase{
+@keyframes bgextendAnimeBase {
   from {
-    opacity:0;
+    opacity: 0;
   }
 
   to {
-    opacity:1;
-}
+    opacity: 1;
+  }
 }
 
 /*中の要素*/
-.bgappear{
-	animation-name:bgextendAnimeSecond;
-	animation-duration:1s;
-	animation-delay: 0.6s;
-	animation-fill-mode:forwards;
-	opacity: 0;
+.bgappear {
+  animation-name: bgextendAnimeSecond;
+  animation-duration: 1s;
+  animation-delay: 0.6s;
+  animation-fill-mode: forwards;
+  opacity: 0;
 }
 
-@keyframes bgextendAnimeSecond{
-	0% {
-	opacity: 0;
-	}
-	100% {
-	opacity: 1;
-}
+@keyframes bgextendAnimeSecond {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
 }
 
 /*--------- 左から --------*/
-.bgLRextend::before{
-	animation-name:bgLRextendAnime;
-	animation-duration:1s;
-	animation-fill-mode:forwards;
-    content: "";
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    background-color: #fbf4f2;/*伸びる背景色の設定*/
+.bgLRextend::before {
+  animation-name: bgLRextendAnime;
+  animation-duration: 1s;
+  animation-fill-mode: forwards;
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: #fbf4f2;
+  /*伸びる背景色の設定*/
 }
-@keyframes bgLRextendAnime{
-	0% {
-		transform-origin:left;
-		transform:scaleX(0);
-	}
-	50% {
-		transform-origin:left;
-		transform:scaleX(1);
-	}
-	50.001% {
-		transform-origin:right;
-	}
-	100% {
-		transform-origin:right;
-		transform:scaleX(0);
-	}
+
+@keyframes bgLRextendAnime {
+  0% {
+    transform-origin: left;
+    transform: scaleX(0);
+  }
+
+  50% {
+    transform-origin: left;
+    transform: scaleX(1);
+  }
+
+  50.001% {
+    transform-origin: right;
+  }
+
+  100% {
+    transform-origin: right;
+    transform: scaleX(0);
+  }
 }
 
 .concept-text {
@@ -498,60 +511,77 @@ header {
   background-color: #fff;
   padding: 30px;
   width: 100%;
-  height: 214px;
+  height: 230px;
 }
 
 .blog-item-text p:first-child {
-  font-size: 12px;
+  font-size: 16px;
+  font-weight: bold;
 }
 
-.blog-item-text p:nth-child(1) {
-  font-weight: bold;
+.blog-item-text p:nth-child(2){
+  font-size: 14px;
+  padding-bottom: 10px;
 }
 
 .blog-item-text p:last-child {
   font-size: 12px;
 }
 
-.circle a{
+.circle a {
   display: block;
   max-width: 250px;
 }
 
 /*波紋*/
 
-.circle span.mask{
-	position: relative;/*波紋の基点となる位置を定義*/
-    display: block;
-    line-height: 0;/*行の高さを0にする*/
-    overflow: hidden;/*拡大してはみ出る要素を隠す*/
+.circle span.mask {
+  position: relative;
+  /*波紋の基点となる位置を定義*/
+  display: block;
+  line-height: 0;
+  /*行の高さを0にする*/
+  overflow: hidden;
+  /*拡大してはみ出る要素を隠す*/
 }
 
 .circle span.mask::before {
-	position: absolute;
-	content:"";
-	transform: scale(0);/*円の大きさ初期値は0*/
-	opacity: 0;/*透過0*/
-	width:100%;/*円のサイズ指定*/
-	height:100%;/*円のサイズ指定*/
-	border-radius:50%;/*円の角丸指定*/
-	background: rgba(255,255,255,0.4);/*円の背景色*/
+  position: absolute;
+  content: "";
+  transform: scale(0);
+  /*円の大きさ初期値は0*/
+  opacity: 0;
+  /*透過0*/
+  width: 100%;
+  /*円のサイズ指定*/
+  height: 100%;
+  /*円のサイズ指定*/
+  border-radius: 50%;
+  /*円の角丸指定*/
+  background: rgba(255, 255, 255, 0.4);
+  /*円の背景色*/
 }
 
-.circle span.mask:hover::before {/*hoverした時の変化*/
-	animation: circle 0.75s;/*アニメーションの名前と速度を定義*/
+.circle span.mask:hover::before {
+  /*hoverした時の変化*/
+  animation: circle 0.75s;
+  /*アニメーションの名前と速度を定義*/
 }
 
 @keyframes circle {
   0% {
-  transform: scale(0);
-  opacity: 1;/*透過なし*/
+    transform: scale(0);
+    opacity: 1;
+    /*透過なし*/
   }
+
   30% {
     opacity: 1;
   }
+
   100% {
-  transform: scale(2);/*アニメーションで大きくなった2倍の円の指定*/
+    transform: scale(2);
+    /*アニメーションで大きくなった2倍の円の指定*/
   }
 }
 
@@ -580,13 +610,14 @@ header {
   margin: 0 auto;
 }
 
-.staff-item:hover{
+.staff-item:hover {
   transform: scale(1.1, 1.1);
 }
 
-.staff-item-text p:last-child{
+.staff-item-text p:last-child {
   text-align: left;
 }
+
 /* main-Gallery
 ------------------------------------------ */
 .gallery {
@@ -605,68 +636,83 @@ header {
   object-position: center;
   margin-bottom: 30px;
 }
+
 /*　枠線＋テキストが出現 　*/
 
-.lineText{
-	position: relative;/*テキストの基点となる位置を定義*/
+.lineText {
+  position: relative;
+  /*テキストの基点となる位置を定義*/
 }
 
 /*線の設定*/
-.lineText span.mask{
-	position: relative;
-	display: block;/*画像をくくるspanタグをブロック要素にする*/
-    line-height: 0;/*行の高さを0にする*/
+.lineText span.mask {
+  position: relative;
+  display: block;
+  /*画像をくくるspanタグをブロック要素にする*/
+  line-height: 0;
+  /*行の高さを0にする*/
 }
 
 .lineText span.mask::before,
-.lineText span.mask::after{
-    position: absolute;
-    top: 4%;
-    right: 2.5%;
-    bottom: 4%;
-    left: 2.5%;
-    z-index: 3;
-    content:"";
-    opacity: 0;
-    transition: .3s ease-in-out;/*移り変わる速さを変更したい場合はこの数値を変更*/
+.lineText span.mask::after {
+  position: absolute;
+  top: 4%;
+  right: 2.5%;
+  bottom: 4%;
+  left: 2.5%;
+  z-index: 3;
+  content: "";
+  opacity: 0;
+  transition: .3s ease-in-out;
+  /*移り変わる速さを変更したい場合はこの数値を変更*/
 }
 
 .lineText span.mask::before {
-    border-top: 1px solid rgb(141, 113, 113);/*枠線の色と太さを変更したい場合はこの数値を変更*/
-    border-bottom: 1px solid rgb(141, 113, 113);/*枠線の色と太さを変更したい場合はこの数値を変更*/
-    transform: scale(0,1);
+  border-top: 1px solid rgb(141, 113, 113);
+  /*枠線の色と太さを変更したい場合はこの数値を変更*/
+  border-bottom: 1px solid rgb(141, 113, 113);
+  /*枠線の色と太さを変更したい場合はこの数値を変更*/
+  transform: scale(0, 1);
 }
 
-.lineText span.mask::after{
-    border-right: 1px solid rgb(141, 113, 113);/*枠線の色と太さを変更したい場合はこの数値を変更*/
-    border-left: 1px solid rgb(141, 113, 113);/*枠線の色と太さを変更したい場合はこの数値を変更*/
-    transform: scale(1,0);
+.lineText span.mask::after {
+  border-right: 1px solid rgb(141, 113, 113);
+  /*枠線の色と太さを変更したい場合はこの数値を変更*/
+  border-left: 1px solid rgb(141, 113, 113);
+  /*枠線の色と太さを変更したい場合はこの数値を変更*/
+  transform: scale(1, 0);
 }
 
 .lineText:hover span.mask::before,
-.lineText:hover span.mask::after{/*hoverした時の変化*/
-	opacity: 1;
-    transform: scale(1);
+.lineText:hover span.mask::after {
+  /*hoverした時の変化*/
+  opacity: 1;
+  transform: scale(1);
 }
 
 /*中央テキスト*/
-.lineText span.cap{
-	opacity:0;
-	transition: .5s ease-in-out;/*移り変わる速さを変更したい場合はこの数値を変更*/
-	position: absolute;
-	z-index:3;/*テキストを前面に出す*/
-	top: 50%;
-    left: 50%;
-	transform: translate(-50%,-50%);
-	color: #fff;/*テキストの色を変えたい場合はここを修正*/
-    line-height: 1.5;/*行の高さを1.5にする*/
+.lineText span.cap {
+  opacity: 0;
+  transition: .5s ease-in-out;
+  /*移り変わる速さを変更したい場合はこの数値を変更*/
+  position: absolute;
+  z-index: 3;
+  /*テキストを前面に出す*/
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #fff;
+  /*テキストの色を変えたい場合はここを修正*/
+  line-height: 1.5;
+  /*行の高さを1.5にする*/
 }
 
-.lineText:hover span.cap{/*hoverした時の変化*/
-	opacity:1;
+.lineText:hover span.cap {
+  /*hoverした時の変化*/
+  opacity: 1;
 }
 
-.cap{
+.cap {
   font-size: 18px;
 }
 
@@ -754,11 +800,11 @@ iframe {
   position: relative;
 }
 
-.reserve-btn p:first-child{
+.reserve-btn p:first-child {
   font-size: 20px;
 }
 
-.reserve-btn i{
+.reserve-btn i {
   padding-right: 15px;
 }
 
@@ -780,11 +826,11 @@ iframe {
 
 /* Contact
 ------------------------------------------ */
-main{
+main {
   margin-top: 70px;
 }
 
-.contact{
+.contact {
   margin: 0 50px;
 }
 
@@ -968,7 +1014,8 @@ footer .container {
   max-width: 350px;
   margin: 0 auto;
 }
-.footer-menu-list a:hover{
+
+.footer-menu-list a:hover {
   border-bottom: 2px solid #fff;
 }
 
@@ -976,12 +1023,17 @@ footer .container {
   font-size: 22px;
 }
 
-.telephone a{
+.telephone a {
   color: #fff;
 }
-.access-text .telephone a{
-color: 731d1d;
+
+.access-text .telephone a {
+  color: #731d1d;
 }
+.hamburger-item-telephone{
+  color: #fff;
+}
+
 
 .footer-menu {
   text-align: left;
@@ -1035,7 +1087,8 @@ color: 731d1d;
     padding: 5px 5px;
   }
 
-  .main-text-top, .main-text-bottom{
+  .main-text-top,
+  .main-text-bottom {
     font-size: 30px;
   }
 
@@ -1183,6 +1236,7 @@ color: 731d1d;
     top: 0;
     width: 100%;
   }
+
   .main-img-pc {
     height: 0;
     width: 0;
@@ -1200,10 +1254,10 @@ color: 731d1d;
   }
 
 
-.main-img-sp img{
-  object-fit: cover;
-  object-position: left;
-}
+  .main-img-sp img {
+    object-fit: cover;
+    object-position: left;
+  }
 
   .hamburger-link,
   .concept-box,
@@ -1218,37 +1272,41 @@ color: 731d1d;
     margin-bottom: 25px;
   }
 
-  .blog-box{
+  .blog-box {
     grid-template-columns: 1fr;
   }
-.blog-item{
-  display: flex;
-}
-.blog-item {
-  box-shadow: 5px 5px 9px 5px rgba(0, 0, 0, 0.25);
-  max-width: 500px;
-}
 
-.blog-item-img {
-  height: 214px;
-  width: 100%;
-  object-fit: cover;
-  object-position: center top;
-  padding: 5%;
-}
+  .blog-item {
+    display: flex;
+  }
 
-.blog-item-text{
-  width: 70%;
-}
+  .blog-item {
+    box-shadow: 5px 5px 9px 5px rgba(0, 0, 0, 0.25);
+    max-width: 500px;
+  }
 
-.circle a{
-  width: 100%;
-  max-width: fit-content;
-  margin: 0 auto;
-}
-.circle span.mask{
-  width: 30%;
-}
+  .blog-item-img {
+    height: 214px;
+    width: 100%;
+    object-fit: cover;
+    object-position: center top;
+    padding: 5%;
+  }
+
+  .blog-item-text {
+    width: 70%;
+    height: 214px;
+  }
+
+  .circle a {
+    width: 100%;
+    max-width: fit-content;
+    margin: 0 auto;
+  }
+
+  .circle span.mask {
+    width: 30%;
+  }
 
 
   .staff-box {
@@ -1257,7 +1315,7 @@ color: 731d1d;
     padding: 0 10px;
   }
 
-  .staff-item{
+  .staff-item {
     max-width: 300px;
   }
 
@@ -1267,7 +1325,8 @@ color: 731d1d;
 
   .access-text {
     margin: 0px 20px;
-}
+  }
+
   .access-text dt {
     font-size: 12px;
     text-align: center;
@@ -1330,8 +1389,6 @@ color: 731d1d;
   max-width: 300px;
   margin: 0 auto;
 }
-
-
 
 .twitter h3 {
   padding: 30px 0 10px;
