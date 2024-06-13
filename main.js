@@ -77,37 +77,53 @@ $(function () {
   /*=================================================
     タイトル
   ===================================================*/
+// glowAnimeにglowというクラス名を付ける定義
+function GlowAnimeControl() {
+  $('.glowAnime').each(function () {
+    var elemPos = $(this).offset().top - 50;
+    var scroll = $(window).scrollTop();
+    var windowHeight = $(window).height();
+    if (scroll >= elemPos - windowHeight) {
+      $(this).addClass("glow");
+    } else {
+      $(this).removeClass("glow");
+    }
+  });
 
-  function slideAnime() {
-    //====左に動くアニメーションここから===
-    $('.leftAnime').each(function () {
-      var elemPos = $(this).offset().top - 50;
-      var scroll = $(window).scrollTop();
-      var windowHeight = $(window).height();
-      if (scroll >= elemPos - windowHeight) {
-        //左から右へ表示するクラスを付与
-        //テキスト要素を挟む親要素（左側）とテキスト要素を元位置でアニメーションをおこなう
-        $(this).addClass("slideAnimeLeftRight"); //要素を左枠外にへ移動しCSSアニメーションで左から元の位置に移動
-        $(this).children(".leftAnimeInner").addClass("slideAnimeRightLeft");  //子要素は親要素のアニメーションに影響されないように逆の指定をし元の位置をキープするアニメーションをおこなう
+  $('.glowAnime').on('animationend', function () {
+    // 一つ目のアニメーションが終わったら、二つ目のアニメーションを開始
+    $('.glowAnime2').addClass("glow2");
+  });
+}
+
+// 画面をスクロールをしたら動かしたい場合の記述
+$(window).scroll(function () {
+  GlowAnimeControl();/* アニメーション用の関数を呼ぶ*/
+});
+
+// 画面が読み込まれたらすぐに動かしたい場合の記述
+$(window).on('load', function () {
+  //spanタグを追加する
+  var elements = $(".glowAnime, .glowAnime2");
+  elements.each(function () {
+    var text = $(this).text();
+    var textbox = "";
+    text.split('').forEach(function (t, i) {
+      if (t !== " ") {
+        if (i < 10) {
+          textbox += '<span style="animation-delay: .' + i + 's;">' + t + '</span>';
+        } else {
+          var n = i / 10;
+          textbox += '<span style="animation-delay: ' + n + 's;">' + t + '</span>';
+        }
       } else {
-        //左から右へ表示するクラスを取り除く
-        $(this).removeClass("slideAnimeLeftRight");
-        $(this).children(".leftAnimeInner").removeClass("slideAnimeRightLeft");
-
+        textbox += t;
       }
     });
-
-  }
-
-  // 画面をスクロールをしたら動かしたい場合の記述
-  $(window).scroll(function () {
-    slideAnime();/* アニメーション用の関数を呼ぶ*/
-  });// ここまで画面をスクロールをしたら動かしたい場合の記述
-
-  // 画面が読み込まれたらすぐに動かしたい場合の記述
-  $(window).on('load', function () {
-    slideAnime();/* アニメーション用の関数を呼ぶ*/
-  });// ここまで画面が読み込まれたらすぐに動かしたい場合の記述
+    $(this).html(textbox);
+  });
+  GlowAnimeControl();/* アニメーション用の関数を呼ぶ*/
+});
 
   /*=================================================
     Hair catalog スライダー
@@ -177,13 +193,73 @@ $(function () {
         }
       });
       $(this).html(textbox);
-
     });
 
     TextTypingAnime();/* アニメーション用の関数を呼ぶ*/
   });// ここまで画面が読み込まれたらすぐに動かしたい場合の記述
   /*=================================================
+    Concept表示
+  ===================================================*/
+ // 動きのきっかけとなるアニメーションの名前を定義
+function lineAnime() {
+  //動くきっかけのクラス名と動きのクラス名の設定
+  $('.line, .button, .line .lineinappear').each(function () {
+    var elemPos = $(this).offset().top + $(this).outerHeight(); //要素の下端の位置
+    var scrollBottom = $(window).scrollTop() + $(window).height();
+    if (scrollBottom >= elemPos) {
+      $(this).addClass('bgextend');
+      $(this).addClass('bgappear');
+      $(this).addClass('bgLRextend');
+      // 画面内に入ったらlineAnimeというクラス名を追記
+    } else {
+      $(this).removeClass('bgextend');
+      $(this).removeClass('bgappear');
+      $(this).removeClass('bgLRextend');
+      // 画面外に出たらlineAnimeというクラス名を外す
+    }
+  });
+}
+
+// 画面をスクロールをしたら動かしたい場合の記述
+$(window).scroll(function () {
+  lineAnime();/* アニメーション用の関数を呼ぶ*/
+});
+
+// 画面が読み込まれたらすぐに動かしたい場合の記述
+$(window).on('load', function () {
+  lineAnime();/* アニメーション用の関数を呼ぶ*/
+});
+    /*=================================================
     ボタン表示
   ===================================================*/
+ // 動きのきっかけとなるアニメーションの名前を定義
+function lineAnime() {
+  //動くきっかけのクラス名と動きのクラス名の設定
+  $('.line, .button, .line .lineinappear').each(function () {
+    var elemPos = $(this).offset().top - 50; //要素より、50px上の
+    var scroll = $(window).scrollTop();
+    var windowHeight = $(window).height();
+    if (scroll >= elemPos - windowHeight) {
+      $(this).addClass('lineAnime');
+      $(this).addClass('lineAnime2');
+      $(this).addClass('lineinappear');
+      // 画面内に入ったらlineAnimeというクラス名を追記
+    } else {
+      $(this).removeClass('lineAnime');
+      $(this).removeClass('lineAnime2');
+      $(this).removeClass('lineinappear');
+      // 画面外に出たらlineAnimeというクラス名を外す
+    }
+  });
+}
 
+// 画面をスクロールをしたら動かしたい場合の記述
+$(window).scroll(function () {
+  lineAnime();/* アニメーション用の関数を呼ぶ*/
+});
+
+// 画面が読み込まれたらすぐに動かしたい場合の記述
+$(window).on('load', function () {
+  lineAnime();/* アニメーション用の関数を呼ぶ*/
+});
 });
