@@ -1088,9 +1088,14 @@ footer .container {
     padding: 5px 5px;
   }
 
-  .main-text-top,
-  .main-text-bottom {
-    font-size: 30px;
+  .main-text-top {
+    font-size: 28px;
+    padding: 8px 15px;
+  }
+
+    .main-text-bottom {
+    padding: 4px 10px;
+    font-size: 20px;
   }
 
   /* ハンバーガーボタン */
