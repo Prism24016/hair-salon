@@ -59,19 +59,24 @@ p {
 
 /* ボタン */
 .button {
-  color: #fbf5f5;
   display: block;
   margin: 0 auto;
   text-align: center;
-  background-color: #e15d54;
-  border: 2px solid #e15d54;
   font-size: 15px;
   max-width: 180px;
   padding: 10px 15px;
 }
 
+/* ボタン */
+.button {
+  color: #fbf5f5;
+  background-color: #e15d54;
+  opacity: 0;
+  /* 初期状態では非表示 */
+}
+
 .button:hover {
-  background-color: #fbf5f5;
+  background-color: #fff;
   border: 2px solid #e15d54;
   color: #e15d54;
 }
@@ -120,7 +125,7 @@ p {
 .lineAnime2 .line-move::before {
   top: 0;
   right: 0;
-  animation: lineAnime2 .3s linear .3s forwards;
+  animation: lineAnime2 .2s linear .3s forwards;
   /*表示されて0.3秒後に右線が0.3秒かけて表示*/
 }
 
@@ -128,7 +133,7 @@ p {
 .lineAnime::after {
   bottom: 0;
   right: 0;
-  animation: lineAnime .3s linear .6s forwards;
+  animation: lineAnime .2s linear .5s forwards;
   /*表示されて0.6秒後に下線が0.3秒かけて表示*/
 }
 
@@ -136,7 +141,7 @@ p {
 .lineAnime2 .line-move::after {
   bottom: 0;
   left: 0;
-  animation: lineAnime2 .3s linear .9s forwards;
+  animation: lineAnime2 .2s linear .7s forwards;
   /*表示されて0.9秒後に左線が0.3秒かけて表示*/
 }
 
@@ -160,12 +165,17 @@ p {
   }
 }
 
+.line .lineinappear {
+  border: 2px solid #e15d54;
+  opacity: 0;
+  /* 初期状態では非表示 */
+}
+
 /*枠線内側の要素*/
 .line .lineinappear {
-  animation: lineInnerAnime .5s linear 1.5s forwards;
-  /*1.5秒後に中央のエリアが0.5秒かけて表示*/
-  opacity: 0;
-  /*初期値を透過0にする*/
+  border: 2px solid #e15d54;
+  animation: lineInnerAnime .2s linear 0.9s forwards;
+  /*1.2秒後に中央のエリアが0.3秒かけて表示*/
 }
 
 @keyframes lineInnerAnime {
@@ -175,6 +185,7 @@ p {
 
   100% {
     opacity: 1;
+    /* アニメーションが開始されるときに表示 */
   }
 }
 
@@ -296,22 +307,22 @@ header {
   line-height: 2.3;
   color: #fff;
   border-radius: 5px;
-  background-color: rgba(225,93,84,0.9);
-  padding: 10px 20px 0 20px;
-  font-size: 38px;
+  background-color: rgba(225, 93, 84, 0.9);
+
   line-height: 1.5;
   align-items: center;
 }
 
+.main-text-top {
+  font-size: 42px;
+  padding: 10px 25px;
+}
 
 .main-text-bottom {
-  margin-top: 20px;
+  padding: 10px 15px;
+  font-size: 30px;
+  margin-top: 10px;
 }
-
-.main-text-top {
-  margin-bottom: -0.15rem;
-}
-
 
 .main-text-bottom {
   margin-bottom: -0.75rem;
@@ -322,66 +333,55 @@ header {
   margin-top: 56px;
 }
 
-/*========= 流れるテキスト ===============*/
-
-/*全共通*/
-
-.slide-in {
-  overflow: hidden;
-  display: inline-block;
-}
-
-.slide-in_inner {
-  display: inline-block;
-
-}
-
-/*左右のアニメーション*/
-.leftAnime {
-  opacity: 0;
-  /*事前に透過0にして消しておく*/
-}
-
-.slideAnimeLeftRight {
-  animation-name: slideTextX100;
-  animation-duration: 0.8s;
-  animation-fill-mode: forwards;
+.glowAnime span {
   opacity: 0;
 }
 
-@keyframes slideTextX100 {
-  from {
-    transform: translateX(-100%);
-    /*要素を左の枠外に移動*/
+/*アニメーションで透過を0から1に変化させtext-shadowをつける*/
+.glowAnime.glow span {
+  animation: glow_anime_on 0.8s ease-out forwards;
+}
+
+@keyframes glow_anime_on {
+  0% {
     opacity: 0;
+    text-shadow: 0 0 0 #fff, 0 0 0 #fff;
   }
 
-  to {
-    transform: translateX(0);
-    /*要素を元の位置に移動*/
+  50% {
     opacity: 1;
+    text-shadow: 0 0 10px #fff, 0 0 15px #fff;
+  }
+
+  100% {
+    opacity: 1;
+    text-shadow: 0 0 0 #fff, 0 0 0 #fff;
   }
 }
 
-.slideAnimeRightLeft {
-  animation-name: slideTextX-100;
-  animation-duration: 0.8s;
-  animation-fill-mode: forwards;
+.glowAnime2 span {
   opacity: 0;
 }
 
+/*アニメーションで透過を0から1に変化させtext-shadowをつける*/
+.glowAnime2.glow2 span {
+  animation: glow2_anime_on 0.4s ease-out forwards;
+}
 
-@keyframes slideTextX-100 {
-  from {
-    transform: translateX(100%);
-    /*要素を右の枠外に移動*/
+@keyframes glow2_anime_on {
+  0% {
     opacity: 0;
+    text-shadow: 0 0 0 #fff, 0 0 0 #fff;
   }
 
-  to {
-    transform: translateX(0);
-    /*要素を元の位置に移動*/
+  50% {
     opacity: 1;
+    text-shadow: 0 0 10px #fff, 0 0 15px #fff;
+  }
+
+  100% {
+    opacity: 1;
+    text-shadow: 0 0 0 #fff, 0 0 0 #fff;
   }
 }
 
@@ -511,7 +511,7 @@ header {
   background-color: #fff;
   padding: 30px;
   width: 100%;
-  height: 230px;
+  height: 214px;
 }
 
 .blog-item-text p:first-child {
@@ -519,7 +519,7 @@ header {
   font-weight: bold;
 }
 
-.blog-item-text p:nth-child(2){
+.blog-item-text p:nth-child(2) {
   font-size: 14px;
   padding-bottom: 10px;
 }
@@ -801,7 +801,7 @@ iframe {
 }
 
 .reserve-btn p:first-child {
-  font-size: 20px;
+  font-size: 18px;
 }
 
 .reserve-btn i {
@@ -1030,7 +1030,8 @@ footer .container {
 .access-text .telephone a {
   color: #731d1d;
 }
-.hamburger-item-telephone{
+
+.hamburger-item-telephone {
   color: #fff;
 }
 
