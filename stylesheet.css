@@ -9,6 +9,7 @@ html {
   scroll-padding-top: 60px;
   /* ヘッダーの高さ */
   background-color: #fbf4f2;
+  background: url(./img/background.jpg);
   color: #731D1D;
 }
 
